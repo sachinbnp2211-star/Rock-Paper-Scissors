@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rock Paper Scissors game statistics and recent results.">
+    <title>Statistics | Rock Paper Scissors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-shell statistics-shell">
+        <header class="hero statistics-hero">
+            <a class="back-link" href="index.html">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                Back to game
+            </a>
+            <p class="eyebrow">Your record</p>
+            <h1>Statistics</h1>
+            <p class="subtitle">A clear picture of every round you have played.</p>
+        </header>
+
+        <section class="stat-summary-grid" aria-label="Game totals">
+            <article class="summary-card summary-total">
+                <span class="summary-label">Total games</span>
+                <strong id="total-games">0</strong>
+                <span class="summary-detail">Rounds played</span>
+            </article>
+            <article class="summary-card summary-wins">
+                <span class="summary-label">Wins</span>
+                <strong id="wins">0</strong>
+                <span class="summary-detail">Successful rounds</span>
+            </article>
+            <article class="summary-card summary-losses">
+                <span class="summary-label">Losses</span>
+                <strong id="losses">0</strong>
+                <span class="summary-detail">Computer wins</span>
+            </article>
+            <article class="summary-card summary-draws">
+                <span class="summary-label">Draws</span>
+                <strong id="draws">0</strong>
+                <span class="summary-detail">Even rounds</span>
+            </article>
+        </section>
+
+        <section class="insights-grid" aria-label="Performance insights">
+            <article class="stats-card breakdown-card">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Round breakdown</p>
+                        <h2>Results at a glance</h2>
+                    </div>
+                    <i class="fa-solid fa-chart-pie stats-icon" aria-hidden="true"></i>
+                </div>
+                <div class="bar-chart" role="img" aria-label="Win, loss, and draw percentages">
+                    <div class="bar-row">
+                        <span>Wins</span><div class="bar-track"><span class="bar-fill bar-win" id="win-bar"></span></div><strong id="win-percentage">0%</strong>
+                    </div>
+                    <div class="bar-row">
+                        <span>Losses</span><div class="bar-track"><span class="bar-fill bar-loss" id="loss-bar"></span></div><strong id="loss-percentage">0%</strong>
+                    </div>
+                    <div class="bar-row">
+                        <span>Draws</span><div class="bar-track"><span class="bar-fill bar-draw" id="draw-bar"></span></div><strong id="draw-percentage">0%</strong>
+                    </div>
+                </div>
+            </article>
+            <article class="stats-card streak-card">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Momentum</p>
+                        <h2>Win streaks</h2>
+                    </div>
+                    <i class="fa-solid fa-fire-flame-curved stats-icon" aria-hidden="true"></i>
+                </div>
+                <div class="streak-values">
+                    <div><span>Current streak</span><strong id="current-streak">0</strong><small>consecutive wins</small></div>
+                    <div><span>Best streak</span><strong id="best-streak">0</strong><small>consecutive wins</small></div>
+                </div>
+            </article>
+        </section>
+
+        <section class="stats-card history-card" aria-labelledby="history-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Latest rounds</p>
+                    <h2 id="history-heading">Recent game history</h2>
+                </div>
+                <span class="round-badge">Latest 20</span>
+            </div>
+            <div class="history-table-wrap">
+                <table class="history-table">
+                    <thead>
+                        <tr><th scope="col">Player</th><th scope="col">Computer</th><th scope="col">Result</th><th scope="col">Played</th></tr>
+                    </thead>
+                    <tbody id="history-body"></tbody>
+                </table>
+                <p class="empty-history" id="empty-history">No games played yet. Start a round to build your history.</p>
+            </div>
+        </section>
+
+        <button class="reset-button statistics-reset" id="reset-button" type="button">
+            <i class="fa-solid fa-trash-can" aria-hidden="true"></i>
+            Reset statistics
+        </button>
+        <p class="status-message" id="status-message" role="status"></p>
+    </main>
+    <script src="storage.js"></script>
+    <script src="statistics.js"></script>
+</body>
+</html>

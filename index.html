@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A polished Rock Paper Scissors game with persistent statistics.">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="hero">
+            <p class="eyebrow">Quick match</p>
+            <h1>Rock Paper Scissors</h1>
+            <p class="subtitle">Choose your move and outsmart the computer.</p>
+            <a class="nav-button" href="statistics.html">
+                <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
+                View statistics
+            </a>
+        </header>
+
+        <section class="game-card" aria-labelledby="game-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Make your move</p>
+                    <h2 id="game-heading">Choose a gesture</h2>
+                </div>
+                <span class="round-badge" id="round-count">Round 0</span>
+            </div>
+
+            <div class="choices" role="group" aria-label="Choose your move">
+                <button class="choice-button" data-choice="rock" type="button" aria-label="Choose rock">
+                    <i class="fa-regular fa-hand-back-fist" aria-hidden="true"></i>
+                    <span>Rock</span>
+                </button>
+                <button class="choice-button" data-choice="paper" type="button" aria-label="Choose paper">
+                    <i class="fa-regular fa-hand" aria-hidden="true"></i>
+                    <span>Paper</span>
+                </button>
+                <button class="choice-button" data-choice="scissors" type="button" aria-label="Choose scissors">
+                    <i class="fa-regular fa-hand-scissors" aria-hidden="true"></i>
+                    <span>Scissors</span>
+                </button>
+            </div>
+
+            <div class="battle-area" aria-live="polite">
+                <div class="player-choice">
+                    <span class="choice-label">You chose</span>
+                    <strong id="player-choice">—</strong>
+                </div>
+                <div class="versus" aria-hidden="true">VS</div>
+                <div class="player-choice">
+                    <span class="choice-label">Computer chose</span>
+                    <strong id="computer-choice">—</strong>
+                </div>
+            </div>
+
+            <div class="result-panel is-idle" id="result-panel">
+                <span class="result-icon" aria-hidden="true">✦</span>
+                <p id="result-message">Your next round starts here.</p>
+            </div>
+
+            <button class="secondary-button replay-button" id="replay-button" type="button" hidden>
+                <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+                Play another round
+            </button>
+        </section>
+
+        <section class="stats-card" aria-labelledby="stats-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Your record</p>
+                    <h2 id="stats-heading">Game statistics</h2>
+                </div>
+                <i class="fa-solid fa-chart-simple stats-icon" aria-hidden="true"></i>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item stat-wins">
+                    <span>Wins</span>
+                    <strong id="wins">0</strong>
+                </div>
+                <div class="stat-item stat-losses">
+                    <span>Losses</span>
+                    <strong id="losses">0</strong>
+                </div>
+                <div class="stat-item stat-draws">
+                    <span>Draws</span>
+                    <strong id="draws">0</strong>
+                </div>
+                <div class="stat-item stat-total">
+                    <span>Total games</span>
+                    <strong id="total-games">0</strong>
+                </div>
+            </div>
+            <button class="reset-button" id="reset-button" type="button">
+                <i class="fa-solid fa-trash-can" aria-hidden="true"></i>
+                Reset statistics
+            </button>
+        </section>
+
+        <p class="status-message" id="status-message" role="status"></p>
+    </main>
+    <script src="storage.js"></script>
+    <script src="logic.js"></script>
+</body>
+</html>
